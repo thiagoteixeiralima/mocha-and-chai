@@ -2,8 +2,6 @@ language: ruby
 
 rvm:
    - 2.5
-   - jruby
-   - 2.2.6p396
 
 cache:
   yarn: true
