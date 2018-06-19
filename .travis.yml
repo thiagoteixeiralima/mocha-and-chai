@@ -12,6 +12,7 @@ before_script:
   - gem install bundler
   - gem install rake
   - gem install rails
+  - gem install rmagick
   - bundle install -–without development test rmagick
   - bundle exec rake generate_secret_token
   - SET RAILS_ENV=production
