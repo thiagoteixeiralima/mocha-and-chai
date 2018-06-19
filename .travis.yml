@@ -1,7 +1,9 @@
-language: node_js
+language: ruby
 
-node_js:
-  - '8.9.4'
+rvm:
+   - 2.5
+   - jruby
+   - 2.2.6p396
 
 cache:
   yarn: true
@@ -12,7 +14,7 @@ before_script:
   - gem install bundler
   - gem install rake
   - gem install rails
-  - bundle install development test rmagick
+  - bundle install -–without development test rmagick
   - bundle exec rake generate_secret_token
   - SET RAILS_ENV=production
   - bundle exec rake db:migrate
