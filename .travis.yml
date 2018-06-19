@@ -8,6 +8,18 @@ cache:
   directories:
     - node_modules
 
+before_script:
+  - gem install bundler
+  - gem install rake
+  - gem install rails
+  - bundle install -–without development test rmagick
+  - bundle exec rake generate_secret_token
+  - SET RAILS_ENV=production
+  - bundle exec rake db:migrate
+  - set RAILS_ENV=production
+  - set REDMINE_LANG=en
+  - bundle exec rake redmine:load_default_data
+  - gem env
 script:
-  - yarn test #caso você tenha algum teste para ser rodado
+  - bundle exec rails server webrick -e production
   - bash ./deploy.sh
